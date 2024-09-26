@@ -4,7 +4,7 @@
 use std::ops::Add;
 
 #[derive(Debug)]
-#[derive(Clone)]
+#[derive(Clone, Copy)]
 pub struct WrappingU32 {
     value: u32,
 }
@@ -37,6 +37,6 @@ mod tests {
         let x = WrappingU32::new(42);
         let y = WrappingU32::new(31);
         let z = WrappingU32::new(u32::MAX);
-        assert_eq!(x + y.clone() + y + z, WrappingU32::new(103));
+        assert_eq!(x + y + y + z, WrappingU32::new(103));
     }
 }
